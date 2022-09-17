@@ -1,3 +1,3 @@
 ## Arrays
 
-Add the programs related to arrays in this folder
+Add the programs related to array into this folder.
