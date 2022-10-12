@@ -1,12 +1,16 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+//creating a structure node 
 struct node{
     int key;
     struct node *addr;
 };
+
 struct node *front=NULL;
 struct node *rear=NULL;
+
+//Function to display the linked list items in order
 void display(){
     struct node *temp2;
     temp2 = front;
@@ -15,6 +19,8 @@ void display(){
         temp2=temp2->addr;
     }
 }
+
+//Function to display the linked list items in reverse order
 void display_r(){
     int i,j,k;
     struct node *temp,*temp2;
@@ -36,6 +42,8 @@ void display_r(){
     }
     printf("%d",front->key);
 }
+
+//Function to insert element at beginning of linked list
 void insert_at_begin(int key1){
     struct node *temp=(struct node*)malloc(sizeof(struct node));
     if(front==NULL){
@@ -49,6 +57,8 @@ void insert_at_begin(int key1){
         front=temp;
     }
 }
+
+//Function to insert element at th end of linked list
 void insert_at_end(int key1){
     struct node *temp=(struct node*)malloc(sizeof(struct node));
     if(front==NULL || rear==NULL) {
@@ -64,6 +74,8 @@ void insert_at_end(int key1){
         rear=temp;
     }
 }
+
+//Function to insert the element at some position of the linked list
 void insert_at_pos(int key1,int pos){
     struct node *temp=(struct node*)malloc(sizeof(struct node));
     struct node *temp1;
@@ -82,6 +94,8 @@ void insert_at_pos(int key1,int pos){
         temp1->addr=temp;
     }
 }
+
+//Function to delete element at beginning of linked list
 void delete_at_begin(){
     if(front==NULL && rear==NULL){
         printf("list is empty");
@@ -96,6 +110,8 @@ void delete_at_begin(){
         front=temp;
     }
 }
+
+//Function to delete element at the end of linked list
 void delete_at_end()
 {
     struct node*temp;
@@ -112,6 +128,8 @@ void delete_at_end()
     rear=temp;
     }
 }
+
+//Function to delete element at some position of linked list
 void delete_at_pos(int pos){
     struct node *temp,*temp1;
     int i;
@@ -144,6 +162,7 @@ int main(){
                     scanf("%d",&key1);
                     printf("\nselect where to insert?:1.begin\t2.end\t3.pos");
                     scanf("%d",&n1);
+                //Switch case to choose inserting (or) deleting (or) displaying element in linked list
                     switch(n1){
                         case 1: insert_at_begin(key1);
                                 break;
